@@ -1,0 +1,23 @@
+def solution(N):
+    start = -1
+    count = 0
+    answer = 0
+    binary = format(N, 'b')
+
+    for k in range(len(binary)):
+        if binary[k] == '1' and start < k:
+            answer = max(count, answer)
+            start = k
+            count = 0
+        if binary[k] == '0':
+            count += 1
+
+    print('binary N =>', binary)
+    return answer
+
+print("BinaryGap(32)=", solution(32))
+print("BinaryGap(1041)=", solution(1041))
+print("BinaryGap(9)=", solution(9))
+print("BinaryGap(529)=", solution(529))
+print("BinaryGap(20)=", solution(20))
+print("BinaryGap(15)=", solution(15))
